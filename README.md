@@ -35,7 +35,7 @@ The **Spanning Tree Protocol (STP) Simulator** is a Python-based tool that allow
 2. Open the application in your browser (usually at `http://localhost:8501`).
 3. Upload a DOT file describing the network topology.
 4. Configure the number of simulation steps using the slider.
-5. Click the "Run Simulation" button to visualize the network topology and view the simulation results.
+5. The simulation will auto run once a file is uploaded.
 
 ## File Structure
 - `main.py`: The main application file.
@@ -47,20 +47,20 @@ The **Spanning Tree Protocol (STP) Simulator** is a Python-based tool that allow
 ## Example DOT File Format
 Below is an example of a valid DOT file format for the simulator:
 ```dot
-graph G {
-  A -- B [speed=100];
-  B -- C [speed=1000];
-  C -- A [speed=10];
+// This is a triangle network.
+graph MG {
+  node [shape=record]
+
+  SW1 [label="<1>1|<2>2" mac="00:00:00:00:00:01" priority=32768 xlabel=SW1]
+  SW2 [label="<1>1|<2>2" mac="00:00:00:00:00:02" priority=32768 xlabel=SW2]
+  SW3 [label="<1>1|<2>2" mac="00:00:00:00:00:03" priority=32768 xlabel=SW3]
+
+  SW1:1 -- SW2:1 [speed=1000];
+  SW1:2 -- SW3:1 [speed=100];
+  SW2:2 -- SW3:2 [speed=1000];
+
 }
 ```
-- Nodes represent network devices (e.g., bridges).
-- Edges represent connections between devices with a `speed` attribute.
-
-## Contributing
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 - Built with [Streamlit](https://streamlit.io/).
