@@ -32,11 +32,7 @@ class Port(object):
     ROLE_DESG = "Designated"
     ST_FORWARD = "Forwarding"
     ST_BLOCKED = "Blocked"
-    ROLE_STATUS_MAP = {
-        ROLE_ROOT: ST_FORWARD,
-        ROLE_DESG: ST_FORWARD,
-        ROLE_UNDESG: ST_BLOCKED
-    }
+    ROLE_STATUS_MAP = { ROLE_ROOT: ST_FORWARD, ROLE_DESG: ST_FORWARD, ROLE_UNDESG: ST_BLOCKED }
 
     def __init__(self, num, cost):
         self.num = num
